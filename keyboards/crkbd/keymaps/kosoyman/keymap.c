@@ -37,9 +37,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_DELETE,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_VOLD, KC_VOLU, KC_MUTE, KC_BRIGHTNESS_DOWN, KC_BRIGHTNESS_UP,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, XXXXXXX,
+      KC_LCTL, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, KC_MPRV, KC_MNXT, KC_MPLY, XXXXXXX, XXXXXXX,                      KC_CAPSLOCK, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LSFT, KC_MPRV, KC_MNXT, KC_MPLY, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LALT, _______,  KC_SPC,     KC_ENT,   MO(3), KC_RGUI
                                       //`--------------------------'  `--------------------------'
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef OLED_DRIVER_ENABLE
 /* 32 * 32 logo */
 static void render_logo(void) {
-    static const char PROGMEM hell_logo[] = {
+    static const char PROGMEM sakai_clan_logo[] = {
     0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xf0, 0x78, 0x78, 0x3c, 0x1c, 0x1e, 0x1e, 0x0e, 0x0e, 0x0e, 
     0x0e, 0x0e, 0x1e, 0x1e, 0x1c, 0x3c, 0x3c, 0x78, 0xf0, 0xe0, 0xe0, 0x80, 0x80, 0x00, 0x00, 0x00, 
     0xc0, 0xfc, 0xff, 0x7f, 0x0f, 0x03, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xe0, 0x70, 0x78, 0xbc, 
@@ -84,7 +84,7 @@ static void render_logo(void) {
     0xe0, 0xe0, 0xf0, 0x70, 0x70, 0x78, 0x38, 0x3c, 0x1e, 0x0f, 0x07, 0x03, 0x01, 0x00, 0x00, 0x00
 	};
 
-    oled_write_raw_P(hell_logo, sizeof(hell_logo));
+    oled_write_raw_P(sakai_clan_logo, sizeof(sakai_clan_logo));
 }
 
 static const char PROGMEM mac_logo[] = {
