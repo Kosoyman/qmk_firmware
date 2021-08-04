@@ -21,21 +21,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Tap Dance declarations
 enum {
-    TD_SPC_SPO,
+    TD_TAB_SPO,
 };
 
-void dance_cln_finished(qk_tap_dance_state_t *state, void *user_data) {
+void dance_tab_finished(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        register_code16(KC_SPC);
+        register_code16(KC_TAB);
     } else {
         register_code(KC_RGUI);
         register_code(KC_SPC);
     }
 }
 
-void dance_cln_reset(qk_tap_dance_state_t *state, void *user_data) {
+void dance_tab_reset(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        unregister_code16(KC_SPC);
+        unregister_code16(KC_TAB);
     } else {
         unregister_code(KC_RGUI);
         unregister_code(KC_SPC);
@@ -45,19 +45,19 @@ void dance_cln_reset(qk_tap_dance_state_t *state, void *user_data) {
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Spac, twice for CMD+Space (macOSX Spotlight)
-    [TD_SPC_SPO] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_cln_finished, dance_cln_reset),
+    [TD_TAB_SPO] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_tab_finished, dance_tab_reset),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
+       TD(TD_TAB_SPO),    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LALT,   MO(1),  TD(TD_SPC_SPO),     KC_ENT,   MO(2), KC_RGUI
+                                          KC_LALT,   MO(1),  KC_SPC,     KC_ENT,   MO(2), KC_RGUI
                                       //`--------------------------'  `--------------------------'
 
   ),

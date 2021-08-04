@@ -31,6 +31,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USE_SERIAL_PD2
 
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 175
+#define TAPPING_TERM 150
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
